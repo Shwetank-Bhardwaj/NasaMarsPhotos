@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
@@ -34,12 +32,12 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
     private fun setUpRecyclerView() {
         rv_images.apply {
             layoutManager = GridLayoutManager(context, 2)
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    LinearLayoutManager.HORIZONTAL
-                )
-            )
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    context,
+//                    LinearLayoutManager.HORIZONTAL
+//                )
+//            )
             val roverAdapter = RoverImageAdapter()
             roverAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.ALLOW
             adapter = roverAdapter

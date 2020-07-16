@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/manifestFragment"
+        android:icon="@drawable/ic_rover_black"
+        android:title="Curiosity"></item>
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings"></item>
+    <item
+        android:id="@+id/aboutMeFragment"
+        android:icon="@drawable/ic_about_me_black"
+        android:title="About"></item>
+</menu>

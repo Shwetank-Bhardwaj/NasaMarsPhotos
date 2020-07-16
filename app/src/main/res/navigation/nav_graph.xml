@@ -17,9 +17,17 @@
     <fragment
         android:id="@+id/manifestFragment"
         android:name="com.shwetank.nasamarsphotos.ui.fragments.manifest.ManifestFragment"
-        android:label="ManifestFragment" >
+        android:label="ManifestFragment">
         <action
             android:id="@+id/action_manifestFragment_to_configFragment"
             app:destination="@id/configFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.shwetank.nasamarsphotos.ui.fragments.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/aboutMeFragment"
+        android:name="com.shwetank.nasamarsphotos.ui.fragments.aboutme.AboutMeFragment"
+        android:label="AboutMeFragment" />
 </navigation>

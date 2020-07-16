@@ -1,13 +1,16 @@
 package com.shwetank.nasamarsphotos.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.shwetank.nasamarsphotos.R
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
         }
+        bottom_navigation_view.setupWithNavController(nav_host_fragment.findNavController())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -12,6 +12,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Rover Name"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Launch Date"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_rover_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_rover_name" />
 
@@ -30,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Landing Date"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_launch_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_launch_date" />
 
@@ -39,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Status"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_landing_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_landing_date" />
 
@@ -47,13 +51,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_status"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_status"
-        tools:listitem="@layout/item_rover_manifest_sol_layout" >
+        tools:listitem="@layout/item_rover_manifest_sol_layout">
 
     </androidx.recyclerview.widget.RecyclerView>
 

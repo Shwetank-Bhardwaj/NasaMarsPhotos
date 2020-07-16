@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -45,12 +44,6 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
     private fun setUpRecyclerView() {
         rv_sol.apply {
             layoutManager = LinearLayoutManager(context)
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    LinearLayoutManager.HORIZONTAL
-                )
-            )
             val manifestAdapter = ManifestAdapter(onSolClickListener)
             manifestAdapter.stateRestorationPolicy =
                 RecyclerView.Adapter.StateRestorationPolicy.ALLOW
