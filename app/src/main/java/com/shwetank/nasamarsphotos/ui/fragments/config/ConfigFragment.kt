@@ -1,9 +1,7 @@
 package com.shwetank.nasamarsphotos.ui.fragments.config
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -18,7 +16,6 @@ import com.shwetank.nasamarsphotos.ui.MarsViewModel
 import com.shwetank.nasamarsphotos.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.config_fragment_layout.*
-import java.util.*
 
 @AndroidEntryPoint
 class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
@@ -26,16 +23,15 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
     private lateinit var viewModel: MarsViewModel
     private val args: ConfigFragmentArgs by navArgs()
 
-    private val datePickerListener = DatePickerDialog.OnDateSetListener { view, year, month, day ->
-        val newMonth = month + 1
-        viewModel.getRoverImages("$year-$newMonth-$day")
-        Toast.makeText(context, "month/day/year: $year/$newMonth/$day", Toast.LENGTH_SHORT).show()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         subscribeObservers()
+        setUpRecyclerView()
+        viewModel.getRoverImages(args.date)
+    }
+
+    private fun setUpRecyclerView() {
         rv_images.apply {
             layoutManager = GridLayoutManager(context, 2)
             addItemDecoration(
@@ -48,24 +44,7 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
             roverAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.ALLOW
             adapter = roverAdapter
         }
-        viewModel.getRoverImages(args.date)
-//        btn_search.setOnClickListener {
-//            showDatePickerDialog()
-//            tv_error.visibility = View.GONE
-//        }
     }
-
-    private fun showDatePickerDialog() {
-        val datePickerDialog = DatePickerDialog(
-            requireContext(),
-            datePickerListener,
-            Calendar.getInstance().get(Calendar.YEAR),
-            Calendar.getInstance().get(Calendar.MONTH),
-            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-        );
-        datePickerDialog.show();
-    }
-
 
     private fun subscribeObservers() {
         viewModel.marsRoverPhotos.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
@@ -100,6 +79,5 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
     private fun displayProgressBar(isDisplayed: Boolean) {
         progress_bar.visibility = if (isDisplayed) View.VISIBLE else View.GONE
     }
-
 
 }

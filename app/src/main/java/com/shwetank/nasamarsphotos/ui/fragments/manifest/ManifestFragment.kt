@@ -38,6 +38,11 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         subscribeObservers()
+        setUpRecyclerView()
+        viewModel.getRoverManifest()
+    }
+
+    private fun setUpRecyclerView() {
         rv_sol.apply {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(
@@ -47,10 +52,10 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
                 )
             )
             val manifestAdapter = ManifestAdapter(onSolClickListener)
-            manifestAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.ALLOW
+            manifestAdapter.stateRestorationPolicy =
+                RecyclerView.Adapter.StateRestorationPolicy.ALLOW
             adapter = manifestAdapter
         }
-        viewModel.getRoverManifest()
     }
 
     private fun subscribeObservers() {
