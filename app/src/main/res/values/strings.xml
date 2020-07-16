@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Nasa Mars Photos</string>
+    <string name="rover_name_curiosity">Rover Name: Curiosity</string>
+    <string name="search">Search</string>
+</resources>

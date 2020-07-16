@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Nasa com.shwetank.nasamarsphotos.repo.network.entity.roverimages.Rover com.shwetank.nasamarsphotos.repo.network.entity.roverimages.Photos</string>
+
+    <string name="hello_info_fragment">Hello Info fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_info">Info</string>
+</resources>

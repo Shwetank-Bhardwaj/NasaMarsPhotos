@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/manifestFragment">
+
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.shwetank.nasamarsphotos.ui.fragments.config.ConfigFragment"
+        android:label="ConfigFragment" >
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_configFragment_to_manifestFragment"
+            app:destination="@id/manifestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manifestFragment"
+        android:name="com.shwetank.nasamarsphotos.ui.fragments.manifest.ManifestFragment"
+        android:label="ManifestFragment" >
+        <action
+            android:id="@+id/action_manifestFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+    </fragment>
+</navigation>
