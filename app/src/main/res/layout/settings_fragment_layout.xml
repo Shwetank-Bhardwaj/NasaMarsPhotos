@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbFhaz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/front_hazard_avoidance_camera" />
+
+        <RadioButton
+            android:id="@+id/rbRhaz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rear_hazard_avoidance_camera" />
+
+        <RadioButton
+            android:id="@+id/rbMast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mast_camera" />
+
+        <RadioButton
+            android:id="@+id/rbChemCam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/chemistry_and_camera_complex" />
+
+        <RadioButton
+            android:id="@+id/rbMahli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mars_hand_lens_image" />
+
+        <RadioButton
+            android:id="@+id/rbMardi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mars_descent_imager" />
+
+        <RadioButton
+            android:id="@+id/rbNavCam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/navigation_camera" />
+
+        <RadioButton
+            android:id="@+id/rbAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/all_cameras" />
+
+
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

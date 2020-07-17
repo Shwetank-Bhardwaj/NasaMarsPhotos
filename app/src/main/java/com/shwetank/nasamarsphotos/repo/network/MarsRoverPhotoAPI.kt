@@ -8,15 +8,23 @@ import retrofit2.http.Query
 
 interface MarsRoverPhotoAPI {
 
-    @GET ("rovers/curiosity/photos")
+    @GET("rovers/curiosity/photos")
     suspend fun getMarsImages(
-        @Query("earth_date")date: String,
-        @Query("api_key")apiKey: String
+        @Query("earth_date") date: String,
+        @Query("api_key") apiKey: String
     ): Photos
+
+    @GET("rovers/curiosity/photos")
+    suspend fun getMarsImages(
+        @Query("earth_date") date: String,
+        @Query("camera") camera: String?,
+        @Query("api_key") apiKey: String
+    ): Photos
+
 
     @GET("manifests/curiosity")
     suspend fun getCuriosityManifest(
-        @Query("api_key")apiKey: String
+        @Query("api_key") apiKey: String
     ): Manifest
 
 }

@@ -2,4 +2,21 @@
     <string name="app_name">Nasa Mars Photos</string>
     <string name="rover_name_curiosity">Rover Name: Curiosity</string>
     <string name="search">Search</string>
+    <string name="front_hazard_avoidance_camera">Front Hazard Avoidance Camera</string>
+    <string name="rear_hazard_avoidance_camera">Rear Hazard Avoidance Camera</string>
+    <string name="mast_camera">Mast Camera</string>
+    <string name="chemistry_and_camera_complex">Chemistry and Camera Complex</string>
+    <string name="mars_hand_lens_image">Mars Hand Lens Imager</string>
+    <string name="mars_descent_imager">Mars Descent Imager</string>
+    <string name="navigation_camera">Navigation Camera</string>
+    <string name="fhaz">FHAZ</string>
+    <string name="rhaz">RHAZ</string>
+    <string name="mast">MAST</string>
+    <string name="chemcam">CHEMCAM</string>
+    <string name="mahli">MAHLI</string>
+    <string name="mardi">MARDI</string>
+    <string name="navcam">NAVCAM</string>
+    <string name="camera_code">cameraCode</string>
+    <string name="all">all</string>
+    <string name="all_cameras">All Cameras</string>
 </resources>

@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository {
 
+    suspend fun getMarsRoverImages(earthDate: String, cameraCode: String?): Flow<DataState<Photos>>
     suspend fun getMarsRoverImages(earthDate: String): Flow<DataState<Photos>>
     suspend fun getMarsRoverManifest(): Flow<DataState<Manifest>>
 

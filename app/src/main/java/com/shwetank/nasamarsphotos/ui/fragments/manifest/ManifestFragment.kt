@@ -3,13 +3,12 @@ package com.shwetank.nasamarsphotos.ui.fragments.manifest
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
 import com.shwetank.nasamarsphotos.repo.network.entity.manifest.Manifest
-import com.shwetank.nasamarsphotos.ui.MainActivity
 import com.shwetank.nasamarsphotos.ui.MarsViewModel
 import com.shwetank.nasamarsphotos.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,9 +17,9 @@ import kotlinx.android.synthetic.main.rover_fragment_layout.*
 @AndroidEntryPoint
 class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
 
-    private lateinit var viewModel: MarsViewModel
+    private val viewModel: MarsViewModel by viewModels()
 
-    private val onSolClickListener =  object : ManifestAdapter.OnSolClickListener {
+    private val onSolClickListener = object : ManifestAdapter.OnSolClickListener {
         override fun onSolClicked(earthDate: String) {
             val bundle: Bundle = Bundle().apply {
                 putSerializable("date", earthDate)
@@ -30,12 +29,10 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
                 bundle
             )
         }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (activity as MainActivity).viewModel
         subscribeObservers()
         setUpRecyclerView()
         viewModel.getRoverManifest()
@@ -44,10 +41,7 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
     private fun setUpRecyclerView() {
         rv_sol.apply {
             layoutManager = LinearLayoutManager(context)
-            val manifestAdapter = ManifestAdapter(onSolClickListener)
-            manifestAdapter.stateRestorationPolicy =
-                RecyclerView.Adapter.StateRestorationPolicy.ALLOW
-            adapter = manifestAdapter
+            adapter = ManifestAdapter(onSolClickListener)
         }
     }
 

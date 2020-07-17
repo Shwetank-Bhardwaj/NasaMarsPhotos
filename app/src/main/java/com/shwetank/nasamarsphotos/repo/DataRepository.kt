@@ -14,12 +14,25 @@ class DataRepository
         private val marsRoverImageApi: MarsRoverPhotoAPI
     ) : Repository {
 
+    override suspend fun getMarsRoverImages(
+        earthDate: String,
+        cameraCode: String?
+    ): Flow<DataState<Photos>> = flow {
+        emit(DataState.Loading)
+        try {
+            val images = marsRoverImageApi.getMarsImages(earthDate, cameraCode, Constants.API_KEY)
+            emit((DataState.Success(images)))
+        } catch (e: Exception) {
+            emit(DataState.Error(e))
+        }
+    }
+
     override suspend fun getMarsRoverImages(earthDate: String): Flow<DataState<Photos>> = flow {
         emit(DataState.Loading)
         try {
             val images = marsRoverImageApi.getMarsImages(earthDate, Constants.API_KEY)
             emit((DataState.Success(images)))
-        } catch (e: Exception){
+        } catch (e: Exception) {
             emit(DataState.Error(e))
         }
     }
@@ -29,7 +42,7 @@ class DataRepository
         try {
             val manifest = marsRoverImageApi.getCuriosityManifest(Constants.API_KEY)
             emit((DataState.Success(manifest)))
-        } catch (e: Exception){
+        } catch (e: Exception) {
             emit(DataState.Error(e))
         }
     }
