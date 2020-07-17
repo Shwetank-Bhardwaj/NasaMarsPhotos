@@ -13,6 +13,24 @@ class SettingsFragment : Fragment(R.layout.settings_fragment_layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = "Settings"
+
+        setCamera()
+        setListReverse()
+    }
+
+    private fun setListReverse() {
+        val shouldSort = activity?.getPreferences(Context.MODE_PRIVATE)!!
+            .getBoolean(getString(R.string.sort_list), true)
+        sw_reverse.isChecked = shouldSort
+        sw_reverse.setOnCheckedChangeListener { buttonView, isChecked ->
+            activity?.getPreferences(Context.MODE_PRIVATE)!!.edit()
+                .putBoolean(getString(R.string.sort_list), isChecked).commit()
+        }
+
+    }
+
+    private fun setCamera() {
         val cameraCode = activity?.getPreferences(Context.MODE_PRIVATE)!!
             .getString(getString(R.string.camera_code), getString(R.string.all))
 
@@ -42,7 +60,6 @@ class SettingsFragment : Fragment(R.layout.settings_fragment_layout) {
                 radioGroup.check(R.id.rbAll)
             }
         }
-
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             val cameraCode: String

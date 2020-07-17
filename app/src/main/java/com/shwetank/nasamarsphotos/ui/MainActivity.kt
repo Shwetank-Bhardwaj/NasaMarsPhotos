@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         bottom_navigation_view.setupWithNavController(nav_host_fragment.findNavController())
+        bottom_navigation_view.setOnNavigationItemReselectedListener { }
     }
 
 }

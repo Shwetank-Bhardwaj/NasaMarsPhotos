@@ -1,5 +1,6 @@
 package com.shwetank.nasamarsphotos.ui.fragments.manifest
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -33,6 +34,7 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = getString(R.string.app_name)
         subscribeObservers()
         setUpRecyclerView()
         viewModel.getRoverManifest()
@@ -54,7 +56,13 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
                     tv_launch_date.text = "Launch Date: ${it.data.photoManifest.launchDate}"
                     tv_landing_date.text = "Landing Date: ${it.data.photoManifest.landingDate}"
                     tv_status.text = "Rover Current Status: ${it.data.photoManifest.status}"
-                    (rv_sol.adapter as ManifestAdapter).setList(it.data.photoManifest.solManifests.reversed())
+                    val shouldSort = activity?.getPreferences(Context.MODE_PRIVATE)!!
+                        .getBoolean(getString(R.string.sort_list), true)
+                    if (shouldSort) {
+                        (rv_sol.adapter as ManifestAdapter).setList(it.data.photoManifest.solManifests.reversed())
+                    } else {
+                        (rv_sol.adapter as ManifestAdapter).setList(it.data.photoManifest.solManifests)
+                    }
                 }
 
                 is DataState.Error -> {

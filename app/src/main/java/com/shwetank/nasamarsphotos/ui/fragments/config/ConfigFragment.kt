@@ -23,6 +23,7 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.title = "Photos"
         subscribeObservers()
         setUpRecyclerView()
         val cameraCode = activity?.getPreferences(Context.MODE_PRIVATE)!!

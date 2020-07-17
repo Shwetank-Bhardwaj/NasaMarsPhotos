@@ -42,7 +42,7 @@ class RoverImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             with(itemView){
                 Glide.with(itemView)
                     .load(photo.imgSrc)
-                    .placeholder(R.drawable.ic_search_300)
+                    .placeholder(R.drawable.ic_placeholder_black)
                     .into(iv_image)
                 tv_sol.text = "${photo.rover.name} with ${photo.cameraDetails.fullName}"
             }
