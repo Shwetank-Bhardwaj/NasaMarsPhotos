@@ -1,11 +1,13 @@
 package com.shwetank.nasamarsphotos.ui.fragments.manifest
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
@@ -14,6 +16,7 @@ import com.shwetank.nasamarsphotos.ui.MarsViewModel
 import com.shwetank.nasamarsphotos.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.rover_fragment_layout.*
+import java.util.*
 
 @AndroidEntryPoint
 class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
@@ -32,18 +35,54 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
         }
     }
 
+    private val datePickerListener = DatePickerDialog.OnDateSetListener { view, year, month, day ->
+        val newMonth = month + 1
+        val bundle: Bundle = Bundle().apply {
+            putSerializable("date", "$year-$newMonth-$day")
+        }
+        findNavController().navigate(
+            R.id.action_manifestFragment_to_configFragment,
+            bundle
+        )
+    }
+
+    private fun showDatePickerDialog() {
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            datePickerListener,
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH),
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = getString(R.string.app_name)
-        subscribeObservers()
         setUpRecyclerView()
-        viewModel.getRoverManifest()
+        subscribeObservers()
+        btn_search.setOnClickListener {
+            showDatePickerDialog()
+        }
     }
 
     private fun setUpRecyclerView() {
         rv_sol.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ManifestAdapter(onSolClickListener)
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.HORIZONTAL
+                )
+            )
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
         }
     }
 
@@ -88,6 +127,5 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
     private fun displayProgressBar(isDisplayed: Boolean) {
         rover_frag_progress_bar.visibility = if (isDisplayed) View.VISIBLE else View.GONE
     }
-
 
 }

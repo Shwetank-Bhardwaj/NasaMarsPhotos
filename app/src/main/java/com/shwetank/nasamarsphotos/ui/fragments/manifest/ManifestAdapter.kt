@@ -40,9 +40,9 @@ class ManifestAdapter constructor(val onSolClickListener: OnSolClickListener) : 
 
         fun bind(solManifest: SolManifest) {
             with(itemView){
-                tv_sol.text = "Sol is ${solManifest.sol.toString()}"
-                tv_earth_date.text = "Earth Date is ${solManifest.earthDate}"
-                tv_total_photos.text = "Total photos ${solManifest.totalPhotos.toString()}"
+                tv_sol.text = "Sol: ${solManifest.sol.toString()}"
+                tv_earth_date.text = "Earth Date: ${solManifest.earthDate}"
+                tv_total_photos.text = "Total photos: ${solManifest.totalPhotos.toString()}"
                 tv_cameras.text = "Cameras: ${solManifest.cameras.joinToString()}"
                 setOnClickListener {
                     onSolClickListener.onSolClicked(solManifest.earthDate)

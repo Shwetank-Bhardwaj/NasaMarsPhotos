@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#22ff0000">
 
     <TextView
         android:id="@+id/tv_rover_name"
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif"
         android:text="Rover Name"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,4 +80,16 @@
         app:layout_constraintBottom_toTopOf="@+id/rover_frag_progress_bar"
         app:layout_constraintEnd_toEndOf="@+id/rv_sol"
         app:layout_constraintStart_toStartOf="@+id/rv_sol"></TextView>
+
+    <Button
+        android:id="@+id/btn_search"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/search_by_date"
+        app:icon="@drawable/ic_search_white"
+        app:layout_constraintBottom_toTopOf="@+id/rv_sol"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

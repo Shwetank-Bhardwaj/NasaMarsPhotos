@@ -25,6 +25,10 @@ constructor(
     private val _marsRoverManifest: MutableLiveData<DataState<Manifest>> = MutableLiveData()
     val marsRoverManifest: LiveData<DataState<Manifest>> get() = _marsRoverManifest
 
+    init {
+        getRoverManifest()
+    }
+
     fun getRoverImages(earthDate: String, cameraCode: String?) {
         viewModelScope.launch {
             repository.getMarsRoverImages(earthDate, cameraCode).onEach {
@@ -41,12 +45,14 @@ constructor(
         }
     }
 
-    fun getRoverManifest() {
+    private fun getRoverManifest() {
         viewModelScope.launch {
             repository.getMarsRoverManifest().onEach {
                 _marsRoverManifest.value = it
             }.launchIn(viewModelScope)
         }
     }
+
+
 
 }

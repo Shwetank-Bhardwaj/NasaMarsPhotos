@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Sol"
+                android:text="Sol:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Earth Date"
+                android:text="Earth Date:"
                 app:layout_constraintStart_toStartOf="@+id/tv_sol"
                 app:layout_constraintTop_toBottomOf="@+id/tv_sol" />
 
@@ -46,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Image Count"
+                android:text="Image Count:"
                 app:layout_constraintStart_toStartOf="@+id/tv_earth_date"
                 app:layout_constraintTop_toBottomOf="@+id/tv_earth_date" />
 
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Cameras"
+                android:text="Cameras:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tv_total_photos"
                 app:layout_constraintTop_toBottomOf="@+id/tv_total_photos" />
