@@ -25,4 +25,5 @@
     <string name="about_app_description">I created this application because I love space exploration.\nThis application is about the Curiosity Rover on Mars which is currently active.\nUsing this application you can see the images clicked on different days by different cameras on the rover.\nThere is a settings page through which you can select multiple configurations using which you can sort or filter the data.</string>
     <string name="linkedin"><a href="https://www.linkedin.com/in/shwetank-bhardwaj/">Tap here to open LinkedIn</a></string>
     <string name="github"><a href="https://github.com/Shwetank-Bhardwaj">Tap here to open GitHub</a></string>
+    <string name="application_developed_by">Application Developed By</string>
 </resources>
