@@ -3,4 +3,5 @@
     <color name="colorPrimary">#FE4040</color>
     <color name="colorPrimaryDark">#C3001B</color>
     <color name="colorAccent">#FF786E</color>
+    <color name="rover_background">#22FF0000</color>
 </resources>

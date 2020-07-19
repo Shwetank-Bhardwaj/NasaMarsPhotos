@@ -7,7 +7,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.rover_fragment_layout.*
 import java.util.*
 
 @AndroidEntryPoint
-class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
+class RoverFragment : Fragment(R.layout.rover_fragment_layout) {
 
     private val viewModel: MarsViewModel by viewModels()
 
@@ -71,18 +70,18 @@ class ManifestFragment : Fragment(R.layout.rover_fragment_layout) {
         rv_sol.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ManifestAdapter(onSolClickListener)
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    DividerItemDecoration.HORIZONTAL
-                )
-            )
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    context,
+//                    DividerItemDecoration.HORIZONTAL
+//                )
+//            )
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    context,
+//                    DividerItemDecoration.VERTICAL
+//                )
+//            )
         }
     }
 

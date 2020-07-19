@@ -30,10 +30,10 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:forceDarkAllowed="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:forceDarkAllowed="false"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView

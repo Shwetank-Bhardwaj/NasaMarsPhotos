@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
@@ -40,18 +40,18 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
         rv_images.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = RoverImageAdapter()
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    DividerItemDecoration.HORIZONTAL
-                )
-            )
-            addItemDecoration(
-                DividerItemDecoration(
-                    context,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
+//            addItemDecoration(
+////                DividerItemDecoration(
+////                    context,
+////                    DividerItemDecoration.HORIZONTAL
+////                )
+////            )
+////            addItemDecoration(
+////                DividerItemDecoration(
+////                    context,
+////                    DividerItemDecoration.VERTICAL
+////                )
+////            )
         }
     }
 
@@ -60,7 +60,16 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
             when (it) {
                 is DataState.Success<Photos> -> {
                     displayProgressBar(false)
-                    (rv_images.adapter as RoverImageAdapter).setList(it.data.photos)
+                    if (it.data.photos.isNotEmpty()) {
+                        (rv_images.adapter as RoverImageAdapter).setList(it.data.photos)
+                    } else {
+                        Snackbar.make(
+                            rv_images,
+                            "No Photos available for this day!!",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                        findNavController().navigateUp()
+                    }
                 }
 
                 is DataState.Error -> {
