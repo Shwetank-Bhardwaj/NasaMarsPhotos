@@ -28,7 +28,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
         android:text="@string/application_developed_by"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 

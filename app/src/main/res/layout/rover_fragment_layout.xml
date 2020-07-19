@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
         android:text="Rover Name"
-        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Launch Date"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_rover_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_rover_name" />
 
@@ -34,7 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Landing Date"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_launch_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_launch_date" />
 
@@ -44,7 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Status"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_landing_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_landing_date" />
 
