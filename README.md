@@ -19,6 +19,8 @@ Network: Retrofit Library (https://square.github.io/retrofit/)
 
 Dependency Injection: Hilt (Library build on top of Dagger2) Currently in alpha (https://developer.android.com/training/dependency-injection/hilt-android)
 
+Coroutines are used for retriving data from room database.
+
 Architecture Plan:
 
 I will make this as a single activity application.
@@ -33,7 +35,4 @@ These Interfaces will have implementations like NetworkManagerImpl and RoomDatab
 Also, we will use Work Manager to fetch Rover Data from API at a particular time and save it in the database. Because of this the user will have the ability to use this application in offline mode.
 
 Features: Will update this as soon as I have completed gathering requiremtents
-
-
-
 
