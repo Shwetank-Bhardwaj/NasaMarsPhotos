@@ -13,7 +13,7 @@ Language: Kotlin
 
 Application Arcitecture: MVVM
 
-DataBase: RooRoom Persistence Library (https://developer.android.com/training/data-storage/room)
+DataBase: Room Persistence Library (https://developer.android.com/training/data-storage/room)
 
 Network: Retrofit Library (https://square.github.io/retrofit/)
 
