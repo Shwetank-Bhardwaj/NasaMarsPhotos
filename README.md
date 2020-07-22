@@ -1,6 +1,5 @@
 # NasaMarsPhotos
 
-
 Right Now this is a minimal viable product, I am planning to increase features to this to make this production ready.
 (This application is currently in active development.)
 
@@ -36,3 +35,5 @@ Also, we will use Work Manager to fetch Rover Data from API at a particular time
 
 Features: Will update this as soon as I have completed gathering requiremtents
 
+Owner: Shwetank Bhardwaj
+Contributers: Vikas Sharma
