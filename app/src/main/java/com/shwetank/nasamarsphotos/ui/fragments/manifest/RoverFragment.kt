@@ -70,18 +70,6 @@ class RoverFragment : Fragment(R.layout.rover_fragment_layout) {
         rv_sol.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ManifestAdapter(onSolClickListener)
-//            addItemDecoration(
-//                DividerItemDecoration(
-//                    context,
-//                    DividerItemDecoration.HORIZONTAL
-//                )
-//            )
-//            addItemDecoration(
-//                DividerItemDecoration(
-//                    context,
-//                    DividerItemDecoration.VERTICAL
-//                )
-//            )
         }
     }
 

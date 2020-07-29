@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/configFragment"
         android:name="com.shwetank.nasamarsphotos.ui.fragments.config.ConfigFragment"
-        android:label="ConfigFragment" >
+        android:label="ConfigFragment">
         <argument
             android:name="date"
             app:argType="string" />
@@ -14,6 +14,9 @@
             android:id="@+id/action_configFragment_to_manifestFragment"
             app:destination="@id/manifestFragment"
             app:popUpTo="@id/manifestFragment" />
+        <action
+            android:id="@+id/action_configFragment_to_fullScreenImageFragment"
+            app:destination="@id/fullScreenImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/manifestFragment"
@@ -31,4 +34,15 @@
         android:id="@+id/aboutMeFragment"
         android:name="com.shwetank.nasamarsphotos.ui.fragments.aboutme.AboutMeFragment"
         android:label="AboutMeFragment" />
+    <fragment
+        android:id="@+id/fullScreenImageFragment"
+        android:name="com.shwetank.nasamarsphotos.ui.fragments.FullScreenImageFragment"
+        android:label="FullScreenImageFragment">
+        <argument
+            android:name="url"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_fullScreenImageFragment_to_configFragment"
+            app:destination="@id/configFragment" />
+    </fragment>
 </navigation>

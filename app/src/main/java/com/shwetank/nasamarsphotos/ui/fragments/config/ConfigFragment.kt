@@ -22,6 +22,18 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
     private val viewModel: MarsViewModel by viewModels()
     private val args: ConfigFragmentArgs by navArgs()
 
+    private val onImageClickListener = object : RoverImageAdapter.OnImageClickListener {
+        override fun onImageClicked(url: String) {
+            val bundle: Bundle = Bundle().apply {
+                putSerializable("url", url)
+            }
+            findNavController().navigate(
+                R.id.action_configFragment_to_fullScreenImageFragment,
+                bundle
+            )
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = "Photos"
@@ -39,19 +51,7 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
     private fun setUpRecyclerView() {
         rv_images.apply {
             layoutManager = GridLayoutManager(context, 2)
-            adapter = RoverImageAdapter()
-//            addItemDecoration(
-////                DividerItemDecoration(
-////                    context,
-////                    DividerItemDecoration.HORIZONTAL
-////                )
-////            )
-////            addItemDecoration(
-////                DividerItemDecoration(
-////                    context,
-////                    DividerItemDecoration.VERTICAL
-////                )
-////            )
+            adapter = RoverImageAdapter(onImageClickListener)
         }
     }
 

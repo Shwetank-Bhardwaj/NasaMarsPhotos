@@ -9,7 +9,8 @@ import com.shwetank.nasamarsphotos.R
 import com.shwetank.nasamarsphotos.repo.network.entity.roverimages.Photo
 import kotlinx.android.synthetic.main.item_rover_image_layout.view.*
 
-class RoverImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RoverImageAdapter constructor(val onImageClickListener: OnImageClickListener) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var photoList: List<Photo> = ArrayList()
 
@@ -19,7 +20,8 @@ class RoverImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 R.layout.item_rover_image_layout,
                 parent,
                 false
-            )
+            ),
+            onImageClickListener
         )
     }
 
@@ -31,24 +33,28 @@ class RoverImageAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         (holder as RoverImageViewHolder).bind(photoList[position])
     }
 
-    fun setList(photos: List<Photo>){
+    fun setList(photos: List<Photo>) {
         photoList = photos
         notifyDataSetChanged()
     }
 
-    class RoverImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class RoverImageViewHolder(itemView: View, val onImageClickListener: OnImageClickListener) :
+        RecyclerView.ViewHolder(itemView) {
 
         fun bind(photo: Photo) {
-            with(itemView){
+            with(itemView) {
                 Glide.with(itemView)
                     .load(photo.imgSrc)
                     .placeholder(R.drawable.ic_placeholder_black)
                     .into(iv_image)
                 tv_sol.text = "${photo.rover.name} with ${photo.cameraDetails.fullName}"
+                setOnClickListener { onImageClickListener.onImageClicked(photo.imgSrc) }
             }
         }
 
     }
 
-
+    interface OnImageClickListener {
+        fun onImageClicked(url: String)
+    }
 }
