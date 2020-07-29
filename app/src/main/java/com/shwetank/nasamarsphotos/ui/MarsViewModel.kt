@@ -1,11 +1,9 @@
 package com.shwetank.nasamarsphotos.ui
 
 
+import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.shwetank.nasamarsphotos.repo.Repository
 import com.shwetank.nasamarsphotos.repo.network.entity.manifest.Manifest
 import com.shwetank.nasamarsphotos.repo.network.entity.roverimages.Photos
@@ -17,7 +15,8 @@ import kotlinx.coroutines.launch
 class MarsViewModel
 @ViewModelInject
 constructor(
-    private val repository: Repository
+    private val repository: Repository,
+    @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _marsRoverPhotos: MutableLiveData<DataState<Photos>> = MutableLiveData()

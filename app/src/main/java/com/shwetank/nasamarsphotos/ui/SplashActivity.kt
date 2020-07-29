@@ -12,10 +12,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.coroutines.*
 
-
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 
     var networkCallback: NetworkCallback? = null
@@ -77,9 +78,7 @@ class SplashActivity : AppCompatActivity() {
         } else {
             connectivityManager.activeNetworkInfo.run {
                 return when (type) {
-                    ConnectivityManager.TYPE_WIFI -> true
-                    ConnectivityManager.TYPE_MOBILE -> true
-                    ConnectivityManager.TYPE_ETHERNET -> true
+                    ConnectivityManager.TYPE_WIFI, ConnectivityManager.TYPE_MOBILE, ConnectivityManager.TYPE_ETHERNET -> true
                     else -> true
                 }
             }
