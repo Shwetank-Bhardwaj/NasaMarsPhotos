@@ -5,12 +5,12 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
 import com.shwetank.nasamarsphotos.repo.network.entity.manifest.Manifest
+import com.shwetank.nasamarsphotos.ui.MainActivity
 import com.shwetank.nasamarsphotos.ui.MarsViewModel
 import com.shwetank.nasamarsphotos.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +20,7 @@ import java.util.*
 @AndroidEntryPoint
 class RoverFragment : Fragment(R.layout.rover_fragment_layout) {
 
-    private val viewModel: MarsViewModel by viewModels()
+    private lateinit var viewModel: MarsViewModel
 
     private val onSolClickListener = object : ManifestAdapter.OnSolClickListener {
         override fun onSolClicked(earthDate: String) {
@@ -59,6 +59,7 @@ class RoverFragment : Fragment(R.layout.rover_fragment_layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = getString(R.string.app_name)
+        viewModel = (activity as MainActivity).viewModel
         setUpRecyclerView()
         subscribeObservers()
         btn_search.setOnClickListener {

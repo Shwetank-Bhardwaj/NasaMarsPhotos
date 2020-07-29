@@ -4,13 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shwetank.nasamarsphotos.R
 import com.shwetank.nasamarsphotos.repo.network.entity.roverimages.Photos
+import com.shwetank.nasamarsphotos.ui.MainActivity
 import com.shwetank.nasamarsphotos.ui.MarsViewModel
 import com.shwetank.nasamarsphotos.util.DataState
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.config_fragment_layout.*
 @AndroidEntryPoint
 class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
 
-    private val viewModel: MarsViewModel by viewModels()
+    private lateinit var viewModel: MarsViewModel
     private val args: ConfigFragmentArgs by navArgs()
 
     private val onImageClickListener = object : RoverImageAdapter.OnImageClickListener {
@@ -37,6 +37,7 @@ class ConfigFragment : Fragment(R.layout.config_fragment_layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.title = "Photos"
+        viewModel = (activity as MainActivity).viewModel
         subscribeObservers()
         setUpRecyclerView()
         val cameraCode = activity?.getPreferences(Context.MODE_PRIVATE)!!
