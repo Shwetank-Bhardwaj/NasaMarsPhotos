@@ -5,7 +5,7 @@ Right Now this is a minimal viable product, I am planning to increase features t
 
 I am building this application because I love space exploration.
 
-About the applications:
+About the application:
 
 
 Language: Kotlin
